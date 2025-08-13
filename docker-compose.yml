@@ -1,0 +1,34 @@
+version: '3.1'
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - "./backend/mongodb:/data/db"
+
+  isp-backend:
+    container_name: isp-backend
+    image: isp-backend:1.0
+    restart: always
+    ports:
+      - 15000:15000
+    volumes:
+      - "./backend:/app"
+    depends_on:
+      - mongo
+
+  isp-frontend:
+    container_name: isp-frontend
+    image: isp-frontend:1.0
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - "./frontend:/app"
+    depends_on:
+      - isp-backend
+
+  
