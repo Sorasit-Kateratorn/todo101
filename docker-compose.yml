@@ -9,10 +9,10 @@ services:
     volumes:
       - "./backend/mongodb:/data/db"
 
-  isp-backend:
-    container_name: isp-backend
+  todo-backend:
+    container_name: todo-backend
     build: ./backend
-    image: isp-backend:1.0
+    image: todo-backend:latest
     restart: always
     ports:
       - 15000:15000
@@ -21,16 +21,16 @@ services:
     depends_on:
       - mongo
 
-  isp-frontend:
-    container_name: isp-frontend
+  todo-frontend:
+    container_name: todo-frontend
     build: ./frontend
-    image: isp-frontend:1.0
+    image: todo-frontend:latest
     restart: always
     ports:
       - 3000:3000
     volumes:
       - "./frontend:/app"
     depends_on:
-      - isp-backend
+      - todo-backend
 
   
