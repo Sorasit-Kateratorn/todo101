@@ -25,12 +25,12 @@ jobs:
 
       - name: Tag & Push Backend image
         run: |
-          docker tag todo101-todo-backend sorasit6610545944/todo-backend:latest
+          docker tag todo-backend sorasit6610545944/todo-backend:latest
           docker push sorasit6610545944/todo-backend:latest
 
       - name: Tag & Push Frontend image
         run: |
-          docker tag todo101-todo-frontend sorasit6610545944/todo-frontend:latest
+          docker tag todo-frontend sorasit6610545944/todo-frontend:latest
           docker push sorasit6610545944/todo-frontend:latest
 
 
